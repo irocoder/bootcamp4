@@ -1,6 +1,10 @@
 import React from 'react';
 
 class BuildingList extends React.Component {
+    selectedUpdate(id) {
+        this.props.selectedUpdate(id);
+    }
+
     render() {
         const { data, filterText } = this.props;
 
@@ -10,7 +14,10 @@ class BuildingList extends React.Component {
         })
         .map(directory => {
             return (
-                <tr key={directory.id}>
+                <tr
+                    key={directory.id}
+                    onClick={(e) => this.selectedUpdate(directory.id, e)}
+                >
                     <td>{directory.code} </td>
                     <td> {directory.name} </td>
                 </tr>
