@@ -45,6 +45,15 @@ class App extends React.Component {
         });
     }
 
+    removeBuilding(id) {
+        var newData = this.state.data.filter(building => {
+            return building.id != id;
+        });
+        this.setState({
+            data: newData
+        });
+    }
+
     render() {
 
         return (
@@ -58,22 +67,15 @@ class App extends React.Component {
                     filterUpdate={this.filterUpdate.bind(this)}
                 />
                 <main>
-                    <AddBuilding addBuilding={this.addBuilding.bind(this)}/>
                     <div className="row">
                         <div className="column1">
                             <div className="tableWrapper">
-                                <table className="table table-striped table-hover">
-                                    <tr>
-                                        <td>
-                                            <b>Code Building</b>
-                                        </td>
-                                    </tr>
-                                    <BuildingList
-                                        data={this.state.data}
-                                        filterText={this.state.filterText}
-                                        selectedUpdate={this.selectedUpdate.bind(this)}
-                                    />
-                                </table>
+                                <BuildingList
+                                    data={this.state.data}
+                                    filterText={this.state.filterText}
+                                    selectedUpdate={this.selectedUpdate.bind(this)}
+                                    removeBuilding={this.removeBuilding.bind(this)}
+                                />
                             </div>
                         </div>
                         <div className="column2">
@@ -81,6 +83,7 @@ class App extends React.Component {
                                 data={this.state.data}
                                 buildingId={this.state.selectedBuilding}
                             />
+                            <AddBuilding addBuilding={this.addBuilding.bind(this)}/>
                         </div>
                     </div>
                     <Credit />
