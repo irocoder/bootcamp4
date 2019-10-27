@@ -4,6 +4,11 @@ body {
 	font-family: sans-serif;
 }
 
+.header {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 /* ##### general ##### */
 * {
 	box-sizing: border-box;
@@ -27,7 +32,7 @@ input[type='text'] {
 	border-radius: 3px;
 	padding: 0 2rem;
 	width: calc(100% - 2rem);
-	height: 4rem;
+	height: 2rem;
 }
 
 /* ##### NamesList ##### */
@@ -44,7 +49,11 @@ th {
 td:hover {
 	position: left;
 	cursor: pointer;
-	background-color: #ddd;
+	/* background-color: #ddd;*/
+}
+
+.selectedBuildingField {
+    font-weight: bold;
 }
 
 /* ##### Columns ##### */
@@ -57,7 +66,6 @@ td:hover {
 	float: left;
 	width: 50%;
 	padding: 20px;
-	background-color: #ccdef9;
 }
 
 /* ##### Rows ##### */

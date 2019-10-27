@@ -11,15 +11,21 @@ class ViewBuilding extends React.Component {
     SelectedBuildingPane(props) {
         return (
             <div class="selectedBuildingPane">
-                <div class="code">Code: {props.selectedBuilding.code}</div>
-                <div class="code">Name: {props.selectedBuilding.name}</div>
-                <div class="code">
-                    Coordinates: [
-                        Latitude: {props.selectedBuilding.coordinates.latitude}
+                <div>
+                    <span class="selectedBuildingField">Code</span>: {props.selectedBuilding.code}
+                </div>
+                <div>
+                    <span class="selectedBuildingField">Name</span>: {props.selectedBuilding.name}
+                </div>
+                <div>
+                    <span class="selectedBuildingField">Coordinates</span>: [
+                        Latitude: {props.selectedBuilding.coordinates.latitude}, 
                         Longitude: {props.selectedBuilding.coordinates.longitude}
                     ]
                 </div>
-                <div class="code">Address: {props.selectedBuilding.address}</div>
+                <div>
+                    <span class="selectedBuildingField">Address</span>: {props.selectedBuilding.address}
+                </div>
             </div>
         );
     }

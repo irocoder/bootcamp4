@@ -58,10 +58,7 @@ class App extends React.Component {
 
         return (
             <div className="bg">
-                <div className="row">
-                    <h1>UF Directory App</h1>
-                </div>
-
+                <h1 class="header">UF Directory App</h1>
                 <Search
                     filterText={ this.state.filterText }
                     filterUpdate={this.filterUpdate.bind(this)}
@@ -79,11 +76,26 @@ class App extends React.Component {
                             </div>
                         </div>
                         <div className="column2">
-                            <ViewBuilding
-                                data={this.state.data}
-                                buildingId={this.state.selectedBuilding}
-                            />
-                            <AddBuilding addBuilding={this.addBuilding.bind(this)}/>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        Building Information
+                                    </h3>
+
+                                    <ViewBuilding
+                                        data={this.state.data}
+                                        buildingId={this.state.selectedBuilding}
+                                    />
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        Add Building
+                                    </h3>
+                                    <AddBuilding addBuilding={this.addBuilding.bind(this)} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <Credit />
