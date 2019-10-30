@@ -8,7 +8,21 @@ class ViewBuilding extends React.Component {
         });
     }
 
+    CoordinatesList(props) {
+        return (
+            <div>
+                <span class="selectedBuildingField">Coordinates</span>:
+                [ Latitude: {props.coordinates.latitude}, Longitude: {props.coordinates.longitude} ]
+            </div>
+        );
+
+    }
+
     SelectedBuildingPane(props) {
+        var coordinates = <div>No coordinate data available for this building.</div>;
+        if (props.selectedBuilding.coordinates) {
+            coordinates = <props.coordinatesList coordinates={props.selectedBuilding.coordinates}/>
+        }
         return (
             <div class="selectedBuildingPane">
                 <div>
@@ -17,12 +31,7 @@ class ViewBuilding extends React.Component {
                 <div>
                     <span class="selectedBuildingField">Name</span>: {props.selectedBuilding.name}
                 </div>
-                <div>
-                    <span class="selectedBuildingField">Coordinates</span>: [
-                        Latitude: {props.selectedBuilding.coordinates.latitude}, 
-                        Longitude: {props.selectedBuilding.coordinates.longitude}
-                    ]
-                </div>
+                {coordinates}
                 <div>
                     <span class="selectedBuildingField">Address</span>: {props.selectedBuilding.address}
                 </div>
@@ -35,7 +44,10 @@ class ViewBuilding extends React.Component {
         var selectedBuilding = this.getBuilding(this.props.buildingId);
 
         if (selectedBuilding) {
-            buildingInfo = <this.SelectedBuildingPane selectedBuilding={selectedBuilding}/>
+            buildingInfo = <this.SelectedBuildingPane
+                selectedBuilding={selectedBuilding}
+                coordinatesList = {this.CoordinatesList.bind(this)}
+            />
         }
 
         return (
